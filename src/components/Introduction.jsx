@@ -1,13 +1,25 @@
 import React from 'react';
+import './lightning.css';  
+import './Animation.css';  
 
-function Introduction() {   
+function Introduction() {
   return (
-    <div className='flex flex-col items-center justify-center h-screen text-4xl'>
+    <div className='relative flex flex-col items-center justify-center h-screen text-4xl font-body fade-in intro-background'>
+        {}
         <figure className='mb-8'>
-            <img className='h-30 w-40 rounded-lg mx-auto' src='src/images/Profile.jpg' alt='Profile' />
-            <figcaption className='mt-2 text-sm text-center text-gray-500 dark:text-gray-400'>Example Caption</figcaption>
+            <img className='profile-img rounded-lg mx-auto lightning-border' src='src/images/CAPURAS VANESS.jpg' alt='Profile' />
+            <figcaption className='mt-4 text-base text-center text-gray-300 italic'>This is me!</figcaption>
         </figure>
-        <h1>Hello My Name is <a className='hover:text-blue-600 text-5xl'> Vaness Leonard C. Capuras</a></h1>
+
+        {}
+        <p className='text-center text-white leading-relaxed tracking-wide'>
+          Hello, my name is <a className='hover:text-blue-400 text-4xl font-display font-bold'>Vaness Leonard C. Capuras</a>. <br />
+          I am a developer and a student. <br />
+          Welcome to my portfolio!
+        </p>
+
+        {}
+        <button className='learn-more-btn mt-8'>Learn More</button>
     </div>
   );
 }

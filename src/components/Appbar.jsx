@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Search, Moon, Sun, Menu } from 'lucide-react'
+import './Animation.css'
 
 export default function AppBar() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -13,7 +14,7 @@ export default function AppBar() {
   }, [])
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 fade-in${
       scrollPosition > 0 ? 'bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg shadow-lg' : 'bg-transparent'
     } ${isDarkMode ? 'dark' : ''}`}>
       {/* Container for margin control - Adjust px-4 for left/right margins */}

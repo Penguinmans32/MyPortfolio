@@ -21,6 +21,12 @@ module.exports = {
           900: '#1E3A8A',
         },
       },
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
+        display: ['Roboto', 'sans-serif'],
+        body: ['"Open Sans"'],
+      },
     },
   },
   plugins: [],

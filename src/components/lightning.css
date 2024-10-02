@@ -1,0 +1,110 @@
+/* Moving background effect */
+@keyframes moveBackground {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .intro-background {
+    background: linear-gradient(270deg, #141e30, #243b55, #1a2a37, #243b55);
+    background-size: 400% 400%;
+    animation: moveBackground 15s ease infinite;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .intro-background p, .intro-background a {
+    color: #f1f1f1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  @keyframes lightning {
+    0%, 100% {
+      box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.7), 
+                  0 0 20px 10px rgba(255, 255, 0, 0.5), 
+                  0 0 30px 15px rgba(255, 255, 0, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px 10px rgba(255, 255, 0, 0.9), 
+                  0 0 30px 20px rgba(255, 255, 0, 0.7), 
+                  0 0 40px 30px rgba(255, 255, 0, 0.5);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 20px 10px rgba(30, 144, 255, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 40px 20px rgba(30, 144, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 20px 10px rgba(30, 144, 255, 0.7);
+    }
+  }
+  
+  .lightning-border {
+    animation: lightning 1s infinite, pulseGlow 5s ease-in-out infinite;
+    border-radius: 5%;
+  }
+  
+  .profile-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+                0 0 50px rgba(30, 144, 255, 0.7),
+                0 0 80px rgba(30, 144, 255, 0.5);
+  }
+
+  .learn-more-btn {
+    background-color: #1e90ff;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 8px 15px rgba(30, 144, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .learn-more-btn:hover {
+    background-color: #1c7ed6;
+    box-shadow: 0px 12px 20px rgba(30, 144, 255, 0.6);
+    transform: translateY(-3px);
+  }
+  
+  p {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #1e90ff;
+  }
+  
