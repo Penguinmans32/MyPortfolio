@@ -9,7 +9,7 @@ const projects = [
     title: "⭐ Adventure Tales",
     description: "✨ This game, developed using Java and JavaGUI, features an interactive and engaging user interface for a fun experience. The backend, powered by MySQL (XAMPP), handles user data and game statistics, ensuring smooth gameplay and secure data management. The combination of Java and GUI elements provides a dynamic and responsive experience for players.",
     technologies: ["Java", "MySql", "JavaGUI"],
-    imageUrl: "/src/images/AdventureTal.jpg?height=200&width=300",
+    imageUrl: "/AdventureTal.jpg?height=200&width=300",
     color: "from-purple-400 to-pink-600"
   },
   {
@@ -17,7 +17,7 @@ const projects = [
     title: "⭐ Scheduling Task",
     description: "✨ This project is a Scheduling Task system designed to manage and organize tasks efficiently. It provides users with an intuitive interface for scheduling tasks, ensuring optimal time management and prioritization. The frontend design was created using Figma to enhance user experience with clean, responsive visuals.",
     technologies: ["Figma", "Java", "MySql"],
-    imageUrl: "/src/images/SchedulingTask.jpg?height=200&width=300",
+    imageUrl: "/SchedulingTask.jpg?height=200&width=300",
     color: "from-blue-400 to-teal-600"
   },
   {
@@ -25,7 +25,7 @@ const projects = [
     title: "⭐ Recipe Platform",
     description: "✨ Upcoming Project",
     technologies: ["React.js", "SpringBoot", "Mysql"],
-    imageUrl: "/src/images/ComingSoon.jpg?height=200&width=300",
+    imageUrl: "/ComingSoon.jpg?height=200&width=300",
     color: "from-yellow-400 to-orange-600"
   }
 ]

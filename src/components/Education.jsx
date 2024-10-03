@@ -9,28 +9,28 @@ const educationData = [
     degree: 'Master of Science in Computer Science',
     institution: 'Tech University',
     description: 'Upcoming or maybe not',
-    imageUrl: '/src/images/upcoming.png?height=200&width=200'
+    imageUrl: '/upcoming.png?height=200&width=200'
   },
   {
     year: '2020',
     degree: '⭐ Bachelor of Science in Information Technology',
     institution: 'Cebu Institute of Technology University',
     description: 'Graduated with honors, focused on web technologies',
-    imageUrl: '/src/images/CIT.jpg?height=200&width=200'
+    imageUrl: '/CIT.jpg?height=200&width=200'
   },
   {
     year: '2016',
     degree: '⭐ High School Diploma',
     institution: 'Don Vicente Rama Memorial National High School',
     description: 'Learned fundamentals of programming and networking',
-    imageUrl: '/src/images/Donnational.jpg?height=200&width=200'
+    imageUrl: '/Donnational.jpg?height=200&width=200'
   },
   {
     year: '2010',
     degree: '⭐ Elementary School Diploma',
     institution: 'Don Vicente Rama Memorial National Elementary School',
     description: 'Participated in various academic and contests',
-    imageUrl: '/src/images/Donvicente.jpg?height=200&width=200'
+    imageUrl: '/Donvicente.jpg?height=200&width=200'
   },
 ]
 
@@ -74,7 +74,7 @@ const EducationTimeline = () => {
     <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-900 text-white p-8 overflow-hidden">
       <h1 className="text-4xl font-bold text-center mb-12">My Education Journey</h1>
       <div className="relative max-w-6xl mx-auto">
-        {/* Animated gradient line */}
+        {}
         <motion.div
           className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500"
           style={{ height: gradientHeight }}

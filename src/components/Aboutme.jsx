@@ -44,17 +44,17 @@ const AboutMe = () => {
     {
       title: "Who Am I?",
       content: "I'm a passionate developer with a love for creating innovative solutions. My journey in tech started with a curiosity about how things work, and it has evolved into a fulfilling career.",
-      image: "/src/images/Me.jpg?height=300&width=300"
+      image: "/Me.jpg?height=300&width=300"
     },
     {
       title: "My Family",
       content: "Family is my anchor and source of inspiration. They've supported me through every step of my journey, and their love fuels my drive to succeed.",
-      image: "/src/images/Family.jpg?height=300&width=300"
+      image: "/Family.jpg?height=300&width=300"
     },
     {
       title: "My Friends",
       content: "I'm blessed with an amazing circle of friends who challenge me to grow, both personally and professionally. They're my sounding board and my cheer squad.",
-      image: "/src/images/Frie.jpg?height=300&width=300"
+      image: "/Frie.jpg?height=300&width=300"
     }
   ]
 

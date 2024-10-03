@@ -67,7 +67,7 @@ export default function Introduction() {
           </div>
           <img 
             className="relative w-40 h-40 rounded-full mx-auto border-4 border-white shadow-lg object-cover z-10" 
-            src="/src/images/CAPURAS VANESS.jpg?height=160&width=160" 
+            src="/CAPURAS VANESS (1).jpg?height=160&width=160" 
             alt="Vaness Leonard C. Capuras" 
           />
           <figcaption className="mt-4 text-sm text-gray-300 italic">This is me!</figcaption>
