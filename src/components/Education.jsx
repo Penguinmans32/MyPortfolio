@@ -1,62 +1,111 @@
 "use client"
 
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const educationData = [
   {
     year: '2023',
     degree: 'Master of Science in Computer Science',
     institution: 'Tech University',
-    description: 'Specialized in Artificial Intelligence and Machine Learning',
+    description: 'Upcoming or maybe not',
+    imageUrl: '/src/images/upcoming.png?height=200&width=200'
   },
   {
-    year: '2021',
-    degree: 'Bachelor of Science in Software Engineering',
-    institution: 'Code Academy',
+    year: '2020',
+    degree: '⭐ Bachelor of Science in Information Technology',
+    institution: 'Cebu Institute of Technology University',
     description: 'Graduated with honors, focused on web technologies',
+    imageUrl: '/src/images/CIT.jpg?height=200&width=200'
   },
   {
-    year: '2019',
-    degree: 'Associate Degree in Information Technology',
-    institution: 'Digital Institute',
+    year: '2016',
+    degree: '⭐ High School Diploma',
+    institution: 'Don Vicente Rama Memorial National High School',
     description: 'Learned fundamentals of programming and networking',
+    imageUrl: '/src/images/Donnational.jpg?height=200&width=200'
   },
   {
-    year: '2017',
-    degree: 'High School Diploma',
-    institution: 'Innovation High',
-    description: 'Participated in various coding competitions',
+    year: '2010',
+    degree: '⭐ Elementary School Diploma',
+    institution: 'Don Vicente Rama Memorial National Elementary School',
+    description: 'Participated in various academic and contests',
+    imageUrl: '/src/images/Donvicente.jpg?height=200&width=200'
   },
 ]
 
 const EducationTimeline = () => {
+  const [visibleItems, setVisibleItems] = useState([])
+  const itemRefs = useRef([])
+  const containerRef = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
+  const gradientHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+
+  useEffect(() => {
+    const observers = itemRefs.current.map((ref, index) => {
+      if (ref) {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setVisibleItems(prev => [...prev, index])
+            } else {
+              setVisibleItems(prev => prev.filter(i => i !== index))
+            }
+          },
+          { threshold: 0.1 }
+        )
+        observer.observe(ref)
+        return observer
+      }
+      return null
+    })
+
+    return () => {
+      observers.forEach(observer => observer?.disconnect())
+    }
+  }, [])
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-900 text-white p-8">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-900 text-white p-8 overflow-hidden">
       <h1 className="text-4xl font-bold text-center mb-12">My Education Journey</h1>
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         {/* Animated gradient line */}
         <motion.div
           className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500"
-          initial={{ height: 0 }}
-          animate={{ height: '100%' }}
-          transition={{ duration: 2, ease: 'easeInOut' }}
+          style={{ height: gradientHeight }}
         />
         
         {educationData.map((item, index) => (
           <motion.div
             key={index}
-            className={`flex items-center mb-12 ${
+            ref={el => itemRefs.current[index] = el}
+            className={`flex items-center mb-24 ${
               index % 2 === 0 ? 'flex-row-reverse' : ''
             }`}
-            initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={visibleItems.includes(index) ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-8' : 'pl-8'}`}>
               <h2 className="text-2xl font-bold mb-2">{item.degree}</h2>
               <h3 className="text-xl text-purple-300 mb-2">{item.institution}</h3>
-              <p className="text-gray-300">{item.description}</p>
+              <p className="text-gray-300 mb-4">{item.description}</p>
+              <motion.div
+                className="w-48 h-48 mx-auto overflow-hidden rounded-lg shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <img 
+                  src={item.imageUrl} 
+                  alt={item.institution} 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
             <div className="w-1/2 flex justify-center">
               <motion.div

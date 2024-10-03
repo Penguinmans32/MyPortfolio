@@ -4,6 +4,9 @@ import Education from './components/Education'
 import './components/Animation.css'
 import './components/StyleBar.css'
 import { useEffect } from 'react'
+import Projects from './components/Project'
+import AboutMe from './components/Aboutme'
+import ContactMe from './components/Contactme'
 
 
 function App() {
@@ -35,6 +38,9 @@ function App() {
       <Appbar />
       <Introduction />
       <Education />
+      <Projects />
+      <AboutMe />
+      <ContactMe />
     </>
   );
 }

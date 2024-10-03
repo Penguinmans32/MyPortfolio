@@ -17,9 +17,9 @@ export default function AppBar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 fade-in${
       scrollPosition > 0 ? 'bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg shadow-lg' : 'bg-transparent'
     } ${isDarkMode ? 'dark' : ''}`}>
-      {/* Container for margin control - Adjust px-4 for left/right margins */}
+      {}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14"> {/* Reduced height from h-16 to h-14 */}
+        <div className="flex items-center justify-between h-14"> {}
           <div className="flex-shrink-0 flex items-center">
             <svg className="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
