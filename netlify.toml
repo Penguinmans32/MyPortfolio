@@ -1,4 +1,4 @@
 [build]
-  base    = ""  # Set this to the folder containing your project files, if necessary
-  publish = "public"  # Adjust this to the folder where your built files are located
+  base    = "src"  # Set this to the folder containing your project files, if necessary
+  publish = "dist"  # Adjust this to the folder where your built files are located
   command = "npm run build"  # Adjust the build command if necessary
