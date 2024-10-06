@@ -196,7 +196,7 @@ const ContactMe = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <p className="text-sm text-gray-600">
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            © {new Date().getFullYear()} Vaness Leonard C. Capuras. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center space-x-4">
             <motion.a

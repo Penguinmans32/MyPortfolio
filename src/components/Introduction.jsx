@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
-export default function Introduction() {
+export default function Introduction({ projectsRef }) {
   const phrases = [
     'Developer | Student | Innovator',
     'Developer | Student | Designer',
@@ -45,6 +45,10 @@ export default function Introduction() {
     return () => clearTimeout(timer);
   }, [currentPhrase, isDeleting, loopNum, typingSpeed]);
 
+  const scrollToWork = () => {
+    projectsRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
@@ -75,7 +79,7 @@ export default function Introduction() {
 
         <h1 className="text-4xl font-bold mb-4">
           Hello, I'm{' '}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+          <span className="sparkling-text">
             Vaness Leonard C. Capuras
           </span>
         </h1>
@@ -88,6 +92,7 @@ export default function Introduction() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="px-6 py-3 bg-blue-500 text-white rounded-full font-semibold shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out"
+          onClick={scrollToWork}
         >
           Explore My Work
         </motion.button>
@@ -234,6 +239,30 @@ export default function Introduction() {
           100% {
             transform: translateX(300px);
             opacity: 0;
+          }
+        }
+
+        .sparkling-text {
+          background-image: linear-gradient(
+            90deg,
+            #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff
+          );
+          background-size: 300% 300%;
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+          animation: sparkle 5s linear infinite;
+        }
+
+        @keyframes sparkle {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
           }
         }
       `}</style>

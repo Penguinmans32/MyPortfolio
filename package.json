@@ -1,7 +1,6 @@
 {
   "name": "my-portfolio",
   "private": true,
-  "homepage": "http://Penguinmans32.github.io/MyPortfolio",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
