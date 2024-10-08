@@ -15,6 +15,8 @@
 
         body {
             font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         #chat-widget {
@@ -206,10 +208,85 @@
                 opacity: 1;
             }
         }
+
+        #rocket {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease-in-out;
+            z-index: 999;
+        }
+
+        #rocket svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--primary-color);
+        }
+
+        #bubble {
+            position: absolute;
+            left: -120px;
+            bottom: 100%;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            white-space: nowrap;
+            display: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .bouncing {
+            animation: bounce 1s infinite;
+        }
     </style>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <header style="background-color: var(--primary-color); color: white; padding: 20px;">
+            <h1>My Portfolio</h1>
+        </header>
+        <main style="padding: 20px;">
+            <section id="about" style="margin-bottom: 40px;">
+                <h2>About Me</h2>
+                <p>Hello! I'm a passionate developer with a keen interest in creating innovative solutions. I specialize in web development and enjoy working with modern technologies to build responsive and user-friendly applications.</p>
+            </section>
+            <section id="projects" style="margin-bottom: 40px;">
+                <h2>Projects</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="border: 1px solid var(--secondary-color); padding: 15px; border-radius: 8px;">
+                        <h3>Project 1</h3>
+                        <p>A responsive web application built with React and Node.js.</p>
+                    </div>
+                    <div style="border: 1px solid var(--secondary-color); padding: 15px; border-radius: 8px;">
+                        <h3>Project 2</h3>
+                        <p>An e-commerce platform developed using MERN stack.</p>
+                    </div>
+                    <div style="border: 1px solid var(--secondary-color); padding: 15px; border-radius: 8px;">
+                        <h3>Project 3</h3>
+                        <p>A mobile app for task management built with React Native.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="contact" style="margin-bottom: 40px;">
+                <h2>Contact</h2>
+                <p>Get in touch with me at: <a href="mailto:vaness@example.com" style="color: var(--primary-color);">vaness@example.com</a></p>
+            </section>
+        </main>
+    </div>
+    <div id="rocket">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9v12m-3-3h6m-6-5h6m-6-5h6M18 9c0-6 6-6 6-6s0 6-6 6m0 0v12m-3-3h6m-6-5h6m-6-5h6"></path>
+        </svg>
+        <div id="bubble">Hey, this is the project Vaness take a look!</div>
+    </div>
     <div id="chat-widget">
         <button id="chat-button" aria-label="Open chat">💬</button>
         <div id="chatbot">
@@ -327,6 +404,40 @@
             document.addEventListener('keydown', function(event) {
                 if (event.key === 'Escape' && chatWidget.classList.contains('chat-open')) {
                     chatWidget.classList.remove('chat-open');
+                }
+            });
+
+            // Rocket animation
+            const rocket = document.getElementById('rocket');
+            const bubble = document.getElementById('bubble');
+            const projectsSection = document.getElementById('projects');
+
+            let  lastScrollTop = 0;
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercentage = scrollTop / maxScroll;
+
+                // Move rocket based on scroll position
+                const bottomPosition = Math.max(100, 300 - scrollTop / 2);
+                rocket.style.bottom = bottomPosition + 'px';
+
+                // Add bouncing effect when scrolling up
+                if (scrollTop < lastScrollTop) {
+                    rocket.classList.add('bouncing');
+                } else {
+                    rocket.classList.remove('bouncing');
+                }
+
+                lastScrollTop = scrollTop;
+
+                // Show/hide bubble when projects section is in view
+                const projectsRect = projectsSection.getBoundingClientRect();
+                if (projectsRect.top <= window.innerHeight && projectsRect.bottom >= 0) {
+                    bubble.style.display = 'block';
+                } else {
+                    bubble.style.display = 'none';
                 }
             });
         });
